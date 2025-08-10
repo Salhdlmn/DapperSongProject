@@ -34,15 +34,15 @@ Proje, **Kaggle - Spotify Worldwide Daily Song Ranking** veriseti kullanılarak 
 ## 📸 Ekran Görüntüleri
 
 ### Dashboard
-![Dashboard](images/Dashboard.png)
-![Dashboard2](images/dashboard2.png)
-![Dashboard3](images/dashboard3.png)
+![Dashboard](Images/Dashboard.png)
+![Dashboard2](Images/dashboard2.png)
+![Dashboard3](Images/dashboard3.png)
 
 ### Search
-![Search](images/search.png)
+![Search](Images/search.png)
 
 ### Songs
-![Songs](images/Songs.png)
-![Songs2](images/Songs2.png)
+![Songs](Images/Songs.png)
+![Songs2](Images/Songs2.png)
 
 

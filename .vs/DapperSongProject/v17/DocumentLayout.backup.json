@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\repositories\\songrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\repositories\\songrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\viewcomponents\\_graphstatisticcomponentpartial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\viewcomponents\\_graphstatisticcomponentpartial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\dtos\\songdtos\\weeklyviewsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\dtos\\songdtos\\weeklyviewsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\models\\dashboardstatisticsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\models\\dashboardstatisticsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\views\\shared\\components\\_graphstatisticcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\views\\shared\\components\\_graphstatisticcomponentpartial\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\views\\songs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\views\\songs\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|c:\\users\\monster\\desktop\\dappersongproject\\dappersongproject\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{678B8EBA-9C14-4C8E-9607-08A49D3B0A06}|DapperSongProject\\DapperSongProject.csproj|solutionrelative:dappersongproject\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SongRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Repositories\\SongRepository.cs",
+              "RelativeDocumentMoniker": "DapperSongProject\\Repositories\\SongRepository.cs",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Repositories\\SongRepository.cs",
+              "RelativeToolTip": "DapperSongProject\\Repositories\\SongRepository.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAkwIQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T06:36:39.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_GraphStatisticComponentPartial.cs",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\ViewComponents\\_GraphStatisticComponentPartial.cs",
+              "RelativeDocumentMoniker": "DapperSongProject\\ViewComponents\\_GraphStatisticComponentPartial.cs",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\ViewComponents\\_GraphStatisticComponentPartial.cs",
+              "RelativeToolTip": "DapperSongProject\\ViewComponents\\_GraphStatisticComponentPartial.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T06:36:30.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeeklyViewsDto.cs",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Dtos\\SongDtos\\WeeklyViewsDto.cs",
+              "RelativeDocumentMoniker": "DapperSongProject\\Dtos\\SongDtos\\WeeklyViewsDto.cs",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Dtos\\SongDtos\\WeeklyViewsDto.cs",
+              "RelativeToolTip": "DapperSongProject\\Dtos\\SongDtos\\WeeklyViewsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T06:36:21.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DashboardStatisticsViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Models\\DashboardStatisticsViewModel.cs",
+              "RelativeDocumentMoniker": "DapperSongProject\\Models\\DashboardStatisticsViewModel.cs",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Models\\DashboardStatisticsViewModel.cs",
+              "RelativeToolTip": "DapperSongProject\\Models\\DashboardStatisticsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T06:35:59.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Songs\\Index.cshtml",
+              "RelativeDocumentMoniker": "DapperSongProject\\Views\\Songs\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Songs\\Index.cshtml",
+              "RelativeToolTip": "DapperSongProject\\Views\\Songs\\Index.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T06:21:56.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Shared\\Components\\_GraphStatisticComponentPartial\\Default.cshtml",
+              "RelativeDocumentMoniker": "DapperSongProject\\Views\\Shared\\Components\\_GraphStatisticComponentPartial\\Default.cshtml",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Shared\\Components\\_GraphStatisticComponentPartial\\Default.cshtml",
+              "RelativeToolTip": "DapperSongProject\\Views\\Shared\\Components\\_GraphStatisticComponentPartial\\Default.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAgwGMAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T06:21:37.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "DapperSongProject\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "DapperSongProject\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-10T06:20:53.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "DapperSongProject\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\DapperSongProject\\DapperSongProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "DapperSongProject\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAwwDkAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-09T18:16:56.52Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+﻿@model DapperSongProject.Models.PagedResultViewModel<DapperSongProject.Dtos.SongDtos.SongRowDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+	<div class="card-header pb-0">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<h6 class="mb-0">All Songs</h6>
+				<small class="text-muted">
+					Total: @Model.TotalCount • Page @Model.Page / @Model.TotalPages
+				</small>
+			</div>
+			<div class="col-12 col-md-6">
+				<form method="get" class="d-flex justify-content-end input-group   input-group-outline gap-2 search-bar">
+					<input name="q"
+						   value="@Model.Search"
+						   class="form-control search-input"
+						   placeholder="Search by track or artist…" />
+
+					<input type="hidden" name="page" value="1" />
+
+					<button type="submit" class=" btn btn-primary search-btn text-nowrap">
+						Search
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<div class="card my-4">
+				<div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+					<div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
+						<h6 class="text-white text-capitalize ps-3"><img src="/material-dashboard-master/assets/img/small-logos/logo-spotify.svg/" class="avatar avatar-sm me-3 border-radius-lg" alt="user1" />Track List</h6>
+					</div>
+				</div>
+				<div class="card-body px-0 pb-2">
+					<div class="table-responsive p-0">
+						<table class="table align-items-center mb-0">
+							<thead>
+								<tr>
+
+									<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Track</th>
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Artist</th>
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Streams</th>
+
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Region</th>
+
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Link</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								@{
+									var rowNo = (Model.Page - 1) * Model.PageSize;
+									foreach (var item in Model.Items)
+									{
+
+										<tr>
+
+											<td>
+												<div>
+													<div class="d-flex px-2 py-1">
+													<img src="/material-dashboard-master/assets/img/small-logos/logo-spotify.svg/" class="avatar avatar-sm me-3 border-radius-lg" alt="user1" />
+													<div class="d-flex flex-column justify-content-center">
+												<p class="align-middle">@item.TrackName</p>
+													</div>
+													</div>
+												</div>
+
+											</td>
+											<td>
+
+
+												<div class="align-middle text-center">
+													<h6 class="mb-0 text-sm"> @item.Artist</h6>
+
+
+												</div>
+											</td>
+											<td>
+												<div class="align-middle text-center">
+
+													<p class="text-xs font-weight-bold mb-0">@item.Streams.ToString("N0")</p>
+												</div>
+
+											</td>
+
+
+											<td class="align-middle text-center">
+												<span class="text-secondary text-xs font-weight-bold">@item.Date.ToString("dd.MM.yyyy")</span>
+											</td>
+											<td>
+												<div class="align-middle text-center">
+													<p class="text-xs font-weight-bold mb-0">@item.Region</p>
+												</div>
+
+											</td>
+											<td class="align-middle text-center">
+												@if (!string.IsNullOrEmpty(item.Url))
+												{
+													<a class="text-primary" href="@item.Url" target="_blank">Open</a>
+												}
+											</td>
+										</tr>
+									}
+								}
+
+							</tbody>
+						</table>
+					</div>
+					@if (Model.TotalPages > 1)
+					{
+						<nav aria-label="Songs pager" class="p-3">
+							<ul class="pagination pagination-sm mb-0">
+								@{
+									int start = Math.Max(1, Model.Page - 2);
+									int end = Math.Min(Model.TotalPages, Model.Page + 2);
+
+									string qs(string k, object v)
+									{
+										var q = new Dictionary<string, string?>
+					{
+						["page"] = v.ToString(),
+						["pageSize"] = Model.PageSize.ToString(),
+						["q"] = Model.Search
+					};
+										return "?" + string.Join("&", q.Where(x => !string.IsNullOrEmpty(x.Value))
+										.Select(x => $"{x.Key}={Uri.EscapeDataString(x.Value!)}"));
+									}
+								}
+
+								<li class="page-item @(Model.Page == 1 ? "disabled" : "")">
+									<a class="page-link" href="@qs("page", 1)">«</a>
+								</li>
+								<li class="page-item @(Model.Page == 1 ? "disabled" : "")">
+									<a class="page-link" href="@qs("page", Model.Page - 1)">‹</a>
+								</li>
+
+								@for (int p = start; p <= end; p++)
+								{
+									<li class="page-item @(p == Model.Page ? "active" : "")">
+										<a class="page-link" href="@qs("page", p)">@p</a>
+									</li>
+								}
+
+								<li class="page-item @(Model.Page == Model.TotalPages ? "disabled" : "")">
+									<a class="page-link" href="@qs("page", Model.Page + 1)">›</a>
+								</li>
+								<li class="page-item @(Model.Page == Model.TotalPages ? "disabled" : "")">
+									<a class="page-link" href="@qs("page", Model.TotalPages)">»</a>
+								</li>
+							</ul>
+						</nav>
+					}
+				</div>
+			</div>
+		</div>
+	</div>

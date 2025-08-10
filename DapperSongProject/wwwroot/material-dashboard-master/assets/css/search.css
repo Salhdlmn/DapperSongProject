@@ -1,0 +1,30 @@
+﻿/* Aynı yükseklik + kutu modeli */
+.search-input {
+    height: 48px; /* <-- sabit yükseklik */
+    padding: 10px 14px;
+    box-sizing: border-box; /* padding + border yükseklikte kalsın */
+    border: 2px solid #ff4081;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+/* Butonu input ile aynı yükseklikte ve dikey ortalı yap */
+.search-btn {
+    height: 48px; /* <-- input ile aynı */
+    padding: 0 18px; /* yükseklik sabit, dikey padding 0 */
+    display: inline-flex; /* dikey ortalama */
+    align-items: center; /* yazıyı ortala */
+    justify-content: center;
+    white-space: nowrap;
+    border: 2px solid #ff4081;
+    border-radius: 8px;
+    background-color: #ff4081;
+}
+
+/* İsteğe bağlı: input focus efekti */
+.search-input:focus {
+    outline: none;
+    border-color: #e73370;
+    box-shadow: 0 0 6px rgba(231,51,112,.35);
+}

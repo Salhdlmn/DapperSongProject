@@ -1,0 +1,430 @@
+﻿@model DapperSongProject.Models.DashboardStatisticsViewModel
+
+
+<div class="row">
+	<div class="col-lg-4 col-md-6 mt-4 mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="mb-0 ">Weekly Total Streams</h6>
+				<p class="text-sm ">Total plays per day in the last 7 days</p>
+				<div class="pe-2">
+					<div class="chart">
+						<canvas id="weekly-views-chart" class="chart-canvas" height="170"></canvas>
+					</div>
+				</div>
+				<hr class="dark horizontal">
+				<div class="d-flex ">
+					<i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
+					<p class="mb-0 text-sm"> campaign sent 2 days ago </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-6 mt-4 mb-4">
+		<div class="card ">
+			<div class="card-body">
+				<h6 class="mb-0 "> Monthly Stream Trend</h6>
+				<p class="text-sm ">Shows changes in total streams across the months </p>
+				<div class="pe-2">
+					<div class="chart">
+						<canvas id="monthly-streams-chart" class="chart-canvas" height="170"></canvas>
+					</div>
+				</div>
+				<hr class="dark horizontal">
+				<div class="d-flex ">
+					<i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
+					<p class="mb-0 text-sm"> updated 4 min ago </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-4 mt-4 mb-3">
+		<div class="card">
+			<div class="card-body">
+				<h6 class="mb-0 ">Monthly Unique Songs</h6>
+				<p class="text-sm ">Number of unique charted songs each month</p>
+				<div class="pe-2">
+					<div class="chart">
+						<canvas id="monthly-tasks-chart" class="chart-canvas" height="170"></canvas>
+					</div>
+				</div>
+				<hr class="dark horizontal">
+				<div class="d-flex ">
+					<i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
+					<p class="mb-0 text-sm">just updated</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row g-4 align-items-stretch">
+		<div class="col-12 col-lg-5 col-xl-4">
+			<div class="card h-100">
+				<div class="card-body">
+					<h6 class="mb-0">Streams by Region</h6>
+					<p class="text-sm ">The regional (country-based) distribution of the songs most listened to by users is visualized below.</p>
+					<div class="pe-2">
+						<div style="width: 450px; height: 450px; margin: 0 auto;">
+							<canvas id="regionPieChart"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		@if (Model.TopTracks?.Any() == true)
+		{
+
+		<div class="col-12 col-lg-7 col-xl-8">
+			<div class="card h-100">
+					<div class="card-header pb-0">
+						<div class="row">
+							<div class="col-lg-6 col-7">
+							<h6>Top 10 Most Streamed Songs</h6>
+							<p class="text-sm mb-0">Total streams across all regions & dates.</p>
+							</div>							
+						</div>
+					</div>
+					<div class="card-body px-0 pb-2">
+						<div class="table-responsive">
+							<table class="table align-items-center mb-0">
+								<thead>
+									<tr>
+										<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+									<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Track</th>
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Artist</th>
+									<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Streams</th>
+									</tr>
+								</thead>
+								<tbody>
+									@{
+										var rank = 1;
+										foreach (var t in Model.TopTracks)
+										{
+											<tr>
+												<td class="align-middle text-center">@rank</td>
+												<td class="d-flex flex-column justify-content-center">@t.TrackName</td>
+												<td class="align-middle text-center ">@t.Artist</td>
+												<td class="align-middle text-center ">@t.TotalStreams.ToString("N0")</td>
+											</tr>
+											rank++;
+										}
+									}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	
+		</div>
+	
+
+
+
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+			const countryNames = {
+	  "tr":"Türkiye",
+	  "my": "Malaysia",
+	  "global": "Global",
+	  "cz": "Czech Republic",
+	  "jp": "Japan",
+	  "gt": "Guatemala",
+	  "uy": "Uruguay",
+	  "do": "Dominican Republic",
+	  "hu": "Hungary",
+	  "py": "Paraguay",
+	  "pa": "Panama",
+	  "hn": "Honduras",
+	  "bo": "Bolivia",
+	  "sv": "El Salvador",
+	  "is": "Iceland",
+	  "gr": "Greece",
+	  "sk": "Slovakia",
+	  "lv": "Latvia",
+	  "lt": "Lithuania",
+	  "ee": "Estonia",
+	  "lu": "Luxembourg"
+	};
+		const regionData = @Html.Raw(Json.Serialize(Model.RegionStreams));
+
+
+
+
+		const weeklyLabels = @Html.Raw(Json.Serialize(Model.WeeklyViews.Select(x => x.Day)));
+		const weeklyData = @Html.Raw(Json.Serialize(Model.WeeklyViews.Select(x => x.Count)));
+		const monthlyStreams = @Html.Raw(Json.Serialize(Model.MonthlyStreams));
+		const monthlyTasks = @Html.Raw(Json.Serialize(Model.MonthlyTasks));
+
+
+	const ctx4 = document.getElementById('regionPieChart').getContext('2d');
+	const regionDonutChart = new Chart(ctx4, {
+		type: 'doughnut', // <-- Burayı değiştirdik
+		data: {
+			labels: regionData.map(d => countryNames[d.region] || d.region),
+			datasets: [{
+				label: 'Streams by Region',
+				data: regionData.map(x=>x.trackCount),
+				backgroundColor: [
+					'#FF6384', '#36A2EB', '#FFCE56', '#9CCC65', '#FF7043',
+					'#AB47BC', '#26C6DA', '#EC407A', '#66BB6A', '#FFA726'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			responsive: true,
+			cutout: '60%', // Donut boşluk oranı, gerekirse artırabilirsin
+			plugins: {
+				legend: {
+					position: 'bottom'
+				},
+				title: {
+					display: true,
+					text: ''
+				}
+			}
+		}
+	});
+
+		// Website Views - Bar Chart
+		 var ctx = document.getElementById("weekly-views-chart").getContext("2d");
+
+		new Chart(ctx, {
+		  type: "bar",
+		  data: {
+			labels:weeklyLabels,
+			datasets: [{
+			  label: "Views",
+			  tension: 0.4,
+			  borderWidth: 0,
+			  borderRadius: 4,
+			  borderSkipped: false,
+			  backgroundColor: "#43A047",
+			  data: weeklyData,
+			  barThickness: 'flex'
+			}, ],
+		  },
+		  options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			plugins: {
+			  legend: {
+				display: false,
+			  }
+			},
+			interaction: {
+			  intersect: false,
+			  mode: 'index',
+			},
+			scales: {
+			  y: {
+				grid: {
+				  drawBorder: false,
+				  display: true,
+				  drawOnChartArea: true,
+				  drawTicks: false,
+				  borderDash: [5, 5],
+				  color: '#e5e5e5'
+				},
+				ticks: {
+				  suggestedMin: 0,
+				  suggestedMax: 500,
+				  beginAtZero: true,
+				  padding: 10,
+				  font: {
+					size: 14,
+					lineHeight: 2
+				  },
+				  color: "#737373"
+				},
+			  },
+			  x: {
+				grid: {
+				  drawBorder: false,
+				  display: false,
+				  drawOnChartArea: false,
+				  drawTicks: false,
+				  borderDash: [5, 5]
+				},
+				ticks: {
+				  display: true,
+				  color: '#737373',
+				  padding: 10,
+				  font: {
+					size: 14,
+					lineHeight: 2
+				  },
+				}
+			  },
+			},
+		  },
+		});
+
+		 var ctx2 = document.getElementById("monthly-streams-chart").getContext("2d");
+
+		new Chart(ctx2, {
+		  type: "line",
+		  data: {
+			labels:monthlyStreams.map(x=>x.month),
+			datasets: [{
+			  label: "Sales",
+			  tension: 0,
+			  borderWidth: 2,
+			  pointRadius: 3,
+			  pointBackgroundColor: "#43A047",
+			  pointBorderColor: "transparent",
+			  borderColor: "#43A047",
+			  backgroundColor: "transparent",
+			  fill: true,
+			  data:monthlyStreams.map(x=>x.streamCount),
+			  maxBarThickness: 6
+
+			}],
+		  },
+		  options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			plugins: {
+			  legend: {
+				display: false,
+			  },
+			  tooltip: {
+				callbacks: {
+				  title: function(context) {
+					const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+					return fullMonths[context[0].dataIndex];
+				  }
+				}
+			  }
+			},
+			interaction: {
+			  intersect: false,
+			  mode: 'index',
+			},
+			scales: {
+			  y: {
+				grid: {
+				  drawBorder: false,
+				  display: true,
+				  drawOnChartArea: true,
+				  drawTicks: false,
+				  borderDash: [4, 4],
+				  color: '#e5e5e5'
+				},
+				ticks: {
+				  display: true,
+				  color: '#737373',
+				  padding: 10,
+				  font: {
+					size: 12,
+					lineHeight: 2
+				  },
+				}
+			  },
+			  x: {
+				grid: {
+				  drawBorder: false,
+				  display: false,
+				  drawOnChartArea: false,
+				  drawTicks: false,
+				  borderDash: [5, 5]
+				},
+				ticks: {
+				  display: true,
+				  color: '#737373',
+				  padding: 10,
+				  font: {
+					size: 12,
+					lineHeight: 2
+				  },
+				}
+			  },
+			},
+		  },
+		});
+		 var ctx3 = document.getElementById("monthly-tasks-chart").getContext("2d");
+
+		new Chart(ctx3, {
+		  type: "line",
+		  data: {
+			labels:monthlyTasks.map(x=>x.month),
+			datasets: [{
+			  label: "Tasks",
+			  tension: 0,
+			  borderWidth: 2,
+			  pointRadius: 3,
+			  pointBackgroundColor: "#43A047",
+			  pointBorderColor: "transparent",
+			  borderColor: "#43A047",
+			  backgroundColor: "transparent",
+			  fill: true,
+			  data: monthlyTasks.map(x=>x.taskCount),
+			  maxBarThickness: 6
+
+			}],
+		  },
+		  options: {
+			responsive: true,
+			maintainAspectRatio: false,
+			plugins: {
+			  legend: {
+				display: false,
+			  }
+			},
+			interaction: {
+			  intersect: false,
+			  mode: 'index',
+			},
+			scales: {
+			  y: {
+				grid: {
+				  drawBorder: false,
+				  display: true,
+				  drawOnChartArea: true,
+				  drawTicks: false,
+				  borderDash: [4, 4],
+				  color: '#e5e5e5'
+				},
+				ticks: {
+				  display: true,
+				  padding: 10,
+				  color: '#737373',
+				  font: {
+					size: 14,
+					lineHeight: 2
+				  },
+				}
+			  },
+			  x: {
+				grid: {
+				  drawBorder: false,
+				  display: false,
+				  drawOnChartArea: false,
+				  drawTicks: false,
+				  borderDash: [4, 4]
+				},
+				ticks: {
+				  display: true,
+				  color: '#737373',
+				  padding: 10,
+				  font: {
+					size: 14,
+					lineHeight: 2
+				  },
+				}
+			  },
+			},
+		  },
+		});
+</script>
+
+
